@@ -108,6 +108,7 @@
   import cola from '@/photo/cola.jpg'
   import milk from '@/photo/milk.jpg'
   export default {
+    name: 'Scramble',
     data:() => ({
       cards:[
         {title: '人'},

@@ -84,6 +84,7 @@
   //   src: dora
   // });
   export default {
+    name: 'Practice',
     data: () => ({
       currentIndex: 0,
       imgs: [
