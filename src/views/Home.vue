@@ -112,6 +112,7 @@
 <script>
 // @ is an alias to /src
 //import HelloWorld from '@/components/HelloWorld.vue'
+import {mapState} from 'vuex'
 import axios from '@/axios';
 export default {
   name: 'Home',
@@ -133,9 +134,9 @@ export default {
     ],
   }),
   computed: {
-    userImg(){
-      return this.$store.state.user.image;
-    }
+    ...mapState({
+      userImg: state => state.auth.user.image
+    }),
   },
   methods: {
     async getPlayer(){

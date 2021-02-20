@@ -1,15 +1,16 @@
 <template>
   <v-app id="app">
     <div>
-      <v-slide-x-transition mode="out-in" v-if="!ifLoading">
+      <v-slide-x-transition mode="out-in" v-if="!isLoading">
         <router-view />
       </v-slide-x-transition>
-      <Loading v-if="ifLoading" />
+      <Loading v-if="isLoading" />
     </div>
   </v-app>
 </template>
 
 <script>
+import {mapState} from 'vuex'
 import Loading from '@/components/Loading.vue'
 export default {
     components: {
@@ -19,12 +20,12 @@ export default {
         
     }),
     mounted(){
-      this.$store.dispatch("getUser");
+      this.$store.dispatch("auth/getUser");
     },
     computed:{
-      ifLoading(){
-        return this.$store.state.loading;
-      }
+       ...mapState({
+        isLoading: state => state.auth.loading
+      }),
     },
     methods:{
       
