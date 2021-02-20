@@ -92,7 +92,6 @@
 </template>
 
 <script>
-  import axios from 'axios';
   export default {
     name: 'HelloWorld',
     data: () => ({
@@ -147,18 +146,5 @@
         },
       ],
     }),
-    methods:{
-      async getPlayer(){
-        try {
-          const response = await axios.get(`api/player`);
-          console.log(response);
-        }catch (e) {
-          console.log(e);
-        }
-      },
-    },
-    mounted:function(){
-      this.getPlayer();
-    }
   }
 </script>
