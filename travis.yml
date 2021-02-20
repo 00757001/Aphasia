@@ -1,0 +1,15 @@
+
+// 指定語言的版本
+language: node_js
+
+//使用 'node' 代表最新的穩定版本
+node_js:
+ - node
+ 
+// 安裝 node 的 dependencies
+install:
+ - npm install
+ 
+// 告訴 Travis CI 要執行測試
+script:
+ - npm run test:unit
