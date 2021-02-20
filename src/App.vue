@@ -1,6 +1,6 @@
 <template>
-  <v-app>
-    <div id="app" >
+  <v-app id="app">
+    <div>
       <v-slide-x-transition mode="out-in" v-if="!ifLoading">
         <router-view />
       </v-slide-x-transition>
