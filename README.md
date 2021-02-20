@@ -1,5 +1,5 @@
 # Aphasia
-
+[![Build Status](https://travis-ci.com/00757001/Aphasia.svg?branch=master)](https://travis-ci.com/00757001/Aphasia)
 ## Project setup
 ```
 npm install
