@@ -1,12 +1,16 @@
-import { shallowMount } from '@vue/test-utils'
-import HelloWorld from '@/components/HelloWorld.vue'
+import { shallowMount, createLocalVue } from '@vue/test-utils';
+import Vue from 'vue'
+import store from '@/store'
+import App from '@/App.vue';
+import Vuetify from 'vuetify';
 
-describe('HelloWorld.vue', () => {
-  it('renders props.msg when passed', () => {
-    const msg = 'new message'
-    const wrapper = shallowMount(HelloWorld, {
-      propsData: { msg }
-    })
-    expect(wrapper.text()).toMatch(msg)
-  })
-})
+describe('APP unit test', () => {
+  Vue.use(Vuetify);
+  const localVue = createLocalVue();
+  localVue.use(Vuetify);
+  const wrapper = shallowMount(App,{store, localVue});
+  it('App Instance Test', () => {
+    expect(wrapper.isVueInstance()).toBe(true);
+    
+  });
+});
