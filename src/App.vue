@@ -1,28 +1,62 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app>
+    <div id="app" >
+      <v-slide-x-transition mode="out-in" v-if="!ifLoading">
+        <router-view />
+      </v-slide-x-transition>
+      <Loading v-if="ifLoading" />
+    </div>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Loading from '@/components/Loading.vue'
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+    components: {
+      Loading
+    },
+    data: () => ({
+        
+    }),
+    mounted(){
+      this.$store.dispatch("getUser");
+    },
+    computed:{
+      ifLoading(){
+        return this.$store.state.loading;
+      }
+    },
+    methods:{
+      
+    },
+    
 }
 </script>
 
-<style>
+
+<style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+
+#nav {
+  padding: 30px;
+
+  a {
+    font-weight: bold;
+    color: #2c3e50;
+
+    &.router-link-exact-active {
+      color: #42b983;
+    }
+  }
+
+  // html,body,#app{
+  //   height: 100%;
+  // }
 }
 </style>
