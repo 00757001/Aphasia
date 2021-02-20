@@ -9,8 +9,7 @@ describe('APP unit test', () => {
   const localVue = createLocalVue();
   localVue.use(Vuetify);
   const wrapper = shallowMount(App,{store, localVue});
-  it('App Instance Test', () => {
-    expect(wrapper.isVueInstance()).toBe(true);
-    
+  it('is instantiated', () => {
+    expect(wrapper.vm).toBeTruthy();
   });
 });
