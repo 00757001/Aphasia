@@ -43,7 +43,7 @@
               outlined
               block
               class="mt-6"
-              router: to = "/practice"
+              @click="goPractice(item.name)"
             >
               開始練習
             </v-btn>
@@ -68,8 +68,8 @@ export default {
     closeOnContentClick: true,
     image:"",
     cards:[
-      {title:'食物',src:'https://cdn.vuetifyjs.com/images/cards/road.jpg'},
-      {title:'生活',src:'https://cdn.vuetifyjs.com/images/cards/docks.jpg'},
+      {title:'食物',src:'https://cdn.vuetifyjs.com/images/cards/road.jpg', name:'food'},
+      {title:'生活',src:'https://cdn.vuetifyjs.com/images/cards/docks.jpg', name:'life'},
       {title:'動作',src:'https://cdn.vuetifyjs.com/images/cards/plane.jpg'},
       {title:'地點',src:'https://cdn.vuetifyjs.com/images/cards/house.jpg'},
       {title:'服飾',src:'https://cdn.vuetifyjs.com/images/cards/road.jpg'},
@@ -77,7 +77,9 @@ export default {
     ],
   }),
   methods:{
-    
+    goPractice(name){
+      this.$router.push({ name: 'Practice', params: { name: name}});
+    }
   },
   mounted:function(){
     
