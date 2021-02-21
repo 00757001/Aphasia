@@ -24,6 +24,7 @@
     "mongoose": "^5.11.15",
     "passport": "^0.4.1",
     "passport-google-oauth20": "^2.0.0",
+    "recorder-js": "^1.0.7",
     "vue": "^2.6.11",
     "vue-cookies": "^1.7.4",
     "vue-router": "^3.2.0",
