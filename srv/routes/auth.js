@@ -16,7 +16,7 @@ router.get('/google/callback',
         // Successful authentication, redirect home.
         res
         //.cookie('name',req.user?.googleId)
-        .cookie('session',req.user?._id.toString(),{ maxAge: 60*60*1000})
+        .cookie('session',req.user?._id.toString(),{ maxAge: 60*60*60*1000})//60 hours
         .redirect(`${config.cors.origin}/home/${req.user?.googleId}`);
     }
 );
